@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "T_ACCOUNTS")
@@ -27,4 +28,10 @@ public class AccountEntity {
 
     @Column(name = "ACC_CUSTOMER_ID")
     private Integer customerId;
+
+    @Column(name = "ACC_CREATE_AT")
+    private Timestamp createAt;
+
+    @Column(name = "ACC_UPDATE_AT")
+    private Timestamp updateAt;
 }
