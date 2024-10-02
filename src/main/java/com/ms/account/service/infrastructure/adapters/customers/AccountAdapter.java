@@ -38,21 +38,27 @@ public class AccountAdapter implements AccountOutPort {
     }
 
     public Account updateAccountAmount(Integer accountId, BigDecimal newAmount) {
+
         Optional<AccountEntity> optionalAccountEntity = accountRepository.findById(accountId);
 
+
         if (!optionalAccountEntity.isPresent()) {
-            return null; // Retorna null si no encuentra la cuenta
+            return null;
         }
 
         AccountEntity accountEntity = optionalAccountEntity.get();
-        accountEntity.setAmount(newAmount); // Actualiza el monto
 
-        // Guardar los cambios en la base de datos
+        if (accountEntity.getNumberAccount() == null || accountEntity.getNumberAccount().isEmpty()) {
+            return null;
+        }
+
+        accountEntity.setAmount(accountEntity.getAmount().add(newAmount));
+
         AccountEntity updatedAccountEntity = accountRepository.save(accountEntity);
 
-        // Mapear la entidad actualizada a DTO (Account)
         return accountMapper.toAccount(updatedAccountEntity);
     }
+
 
 
 

@@ -11,7 +11,6 @@ import java.util.List;
 * */
 
 
-//JPArepository obtiene los datos de la BD, no trabaja solo necesita en el <la entidad, y aqui va el tipo de identificador>
 public interface AccountRepository extends JpaRepository<AccountEntity,Integer> {
 
     List<AccountEntity> findByCustomerId(Integer customerId);
