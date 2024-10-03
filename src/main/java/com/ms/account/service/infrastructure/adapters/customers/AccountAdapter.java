@@ -52,7 +52,7 @@ public class AccountAdapter implements AccountOutPort {
             return null;
         }
 
-        accountEntity.setAmount(accountEntity.getAmount().add(newAmount));
+        accountEntity.setAmount(newAmount);
 
         AccountEntity updatedAccountEntity = accountRepository.save(accountEntity);
 

@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class AccountController implements AccountsApi {
@@ -36,18 +38,18 @@ public class AccountController implements AccountsApi {
     @Override
     @CrossOrigin
     public ResponseEntity<Account> getAccountById(String xSwClientRequestId, String xCmClientUserAgent, Long id) {
-        return AccountsApi.super.getAccountById(xSwClientRequestId, xCmClientUserAgent, id);
+        return new ResponseEntity<>(accountDomainMapper.toAccount(accountInPort.findByIdAccount(id.intValue())), HttpStatus.OK);
     }
 
     @Override
     @CrossOrigin
-    public ResponseEntity<Account> getAccountByIdCustomer(String xSwClientRequestId, String xCmClientUserAgent, Long id) {
-        return AccountsApi.super.getAccountByIdCustomer(xSwClientRequestId, xCmClientUserAgent, id);
+    public ResponseEntity<List<Account>> getAccountByIdCustomer(String xSwClientRequestId, String xCmClientUserAgent, Long id) {
+        return new ResponseEntity<>(accountDomainMapper.toAccountList(accountInPort.findAccountsByCustomerIdAccount(id.intValue())), HttpStatus.OK);
     }
 
     @Override
     @CrossOrigin
     public ResponseEntity<Account> updateAccount(String xSwClientRequestId, String xCmClientUserAgent, Long id, Account account) {
-        return AccountsApi.super.updateAccount(xSwClientRequestId, xCmClientUserAgent, id, account);
+        return new ResponseEntity<>(accountDomainMapper.toAccount(accountInPort.updateAccountAmountAccount(id.intValue(), account.getAmount())), HttpStatus.OK);
     }
 }

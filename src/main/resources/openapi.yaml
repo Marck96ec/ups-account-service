@@ -20,7 +20,7 @@ externalDocs:
   description: Historia de usuario
   url: https://github.com/users/Marck96ec/projects/4/views/1
 servers:
-  - url: http://localhost:8090/api/v1
+  - url: http://localhost:8085/api/v1
     description: service
   - url: http://localhost:8080/api/v1
     description: api-gateway
@@ -203,7 +203,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Account'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
         '204':
           description: Customer does not have accounts
         '400':
