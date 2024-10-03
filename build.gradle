@@ -62,6 +62,9 @@ dependencies {
 	//eureka client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+
 }
 
 dependencyManagement {

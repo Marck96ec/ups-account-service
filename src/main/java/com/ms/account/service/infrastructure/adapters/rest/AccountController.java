@@ -16,16 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AccountController implements AccountsApi {
 
-//    private final CustomerInPort customerInPort;
-//    private final CustomerDomainMapper customerDomainMapper;
-//
-//    @Override
-//    @CrossOrigin
-//    public ResponseEntity<Customer> createCustomer(String xCmClientRequestId, String xCmClientUserAgent, Customer customer) {
-//        //customerInPort.saveCustomer(customerDomainMapper.toCustomerDomain(customer));
-//        //return CustomersApi.super.createCustomer(xCmClientRequestId, xCmClientUserAgent, customer);
-//        return new ResponseEntity<>(customerDomainMapper.toCustomer(customerInPort.saveCustomer(customerDomainMapper.toCustomerDomain(customer))), HttpStatus.CREATED);
-//    }
     private final AccountInPort accountInPort;
     private final AccountDomainMapper accountDomainMapper;
 
