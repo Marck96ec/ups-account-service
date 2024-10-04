@@ -42,7 +42,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: x-cm-client-user-agent
+        - name: x-sw-client-device-type
           in: header
           description: Type of device that consume the endpoint
           required: true
@@ -88,7 +88,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: x-cm-client-user-agent
+        - name: x-sw-client-device-type
           in: header
           description: Type of device that consume the endpoint
           required: true
@@ -129,7 +129,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: x-cm-client-user-agent
+        - name: x-sw-client-device-type
           in: header
           description: Type of device that consume the endpoint
           required: true
@@ -184,7 +184,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: x-cm-client-user-agent
+        - name: x-sw-client-device-type
           in: header
           description: Type of device that consume the endpoint
           required: true
@@ -225,11 +225,15 @@ components:
           type: string
           maxLength: 10
         currencyType:
-          type: integer
+          type: string
         amount:
           type: number
+          minimum: 0
         customerId:
           type: integer
+      required:
+        - customerId
+
     Error:
       type: object
       properties:
