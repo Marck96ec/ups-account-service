@@ -9,7 +9,7 @@ public class Account {
 
     private Integer id;
     private String numberAccount;
-    private Integer currencyType;
+    private com.ms.customer.service.server.models.Account.CurrencyTypeEnum currencyType;
     private BigDecimal amount;
     private Integer customerId;
 

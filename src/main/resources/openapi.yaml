@@ -226,6 +226,9 @@ components:
           maxLength: 10
         currencyType:
           type: string
+          enum:
+            - USD
+            - YNS
         amount:
           type: number
           minimum: 0

@@ -1,5 +1,6 @@
 package com.ms.account.service.infrastructure.adapters.customers.entity;
 
+import com.ms.customer.service.server.models.Account;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,7 +22,7 @@ public class AccountEntity {
     private String numberAccount;
 
     @Column(name = "ACC_CURRENCY_TYPE")
-    private Integer currencyType;
+    private Account.CurrencyTypeEnum currencyType;
 
     @Column(name = "ACC_AMOUNT")
     private BigDecimal amount;
